@@ -100,6 +100,8 @@ class _RatepageState extends State<Ratepage> {
                 ],
               ),
               const SizedBox(
+                ///jbjnkjbijk
+
                 // Set the desired width
                 height: 20, //  // Replace with the widget you want to size
               ),
