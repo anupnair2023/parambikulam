@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:parambikulam/ratepage.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'bloc/mainbloc.dart';
 
 class PrgmPage extends StatefulWidget {
   const PrgmPage({Key? key}) : super(key: key);
@@ -32,7 +34,7 @@ class _PrgmPageState extends State<PrgmPage> {
                         children: [
                           InkWell(
                             child: SizedBox(
-                              height: 150,
+                              height: 140,
                               width: 100,
                               child: ClipRRect(
                                 borderRadius:
@@ -44,10 +46,13 @@ class _PrgmPageState extends State<PrgmPage> {
                               ),
                             ),
                             onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => const Ratepage()));
+                              BlocProvider.of<LoginBloc>(context)
+                                  .add(Navigation());
+
+                              // Navigator.push(
+                              //     context,
+                              //     MaterialPageRoute(
+                              //         builder: (context) => const Ratepage()));
                             },
                           ),
                           const SizedBox(
@@ -59,7 +64,7 @@ class _PrgmPageState extends State<PrgmPage> {
                             "Jungle Safari",
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: 8,
+                              fontSize: 10,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -72,7 +77,7 @@ class _PrgmPageState extends State<PrgmPage> {
                             "Booking Available",
                             style: TextStyle(
                               color: Color(0xff68D389),
-                              fontSize: 8,
+                              fontSize: 10,
                             ),
                           ),
                         ],
@@ -81,30 +86,33 @@ class _PrgmPageState extends State<PrgmPage> {
                   );
                 })),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const Text('Previous Booking',
-                  style: TextStyle(
-                    color: Colors.white,
-                    // Change to your desired color
-                    fontSize: 16.0,
-                  )),
-              Row(
-                children: const [
-                  Text('View all',
-                      style: TextStyle(
-                        color: Colors.white,
-                        // Change to your desired color
-                        fontSize: 16.0,
-                      )),
-                  Icon(
-                    Icons.arrow_right,
-                    color: Colors.white,
-                  )
-                ],
-              ),
-            ],
+          Padding(
+            padding: const EdgeInsets.only(left: 15),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text('Previous Booking',
+                    style: TextStyle(
+                      color: Colors.white,
+                      // Change to your desired color
+                      fontSize: 16.0,
+                    )),
+                Row(
+                  children: const [
+                    Text('View all',
+                        style: TextStyle(
+                          color: Colors.white,
+                          // Change to your desired color
+                          fontSize: 16.0,
+                        )),
+                    Icon(
+                      Icons.arrow_right,
+                      color: Colors.white,
+                    )
+                  ],
+                ),
+              ],
+            ),
           ),
           SizedBox(
             height: MediaQuery.of(context).size.height / 1.8,
@@ -119,7 +127,7 @@ class _PrgmPageState extends State<PrgmPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.all(0),
                         child: Row(children: [
                           ClipRRect(
                             borderRadius:
@@ -141,20 +149,20 @@ class _PrgmPageState extends State<PrgmPage> {
                               SizedBox(
                                 width: 200,
                                 child: Text(
-                                  "Combo Package (Safari, Trekking, Rafting etc & including food) ",
+                                  "Combo Package (Safari,Trekking,Rafting etc)",
                                   style: TextStyle(
                                     color: Colors.white,
-                                    fontSize: 8,
+                                    fontSize: 10,
                                   ),
                                 ),
                               ),
                               SizedBox(
                                 width: 200,
                                 child: Text(
-                                  "Indian Adult X 1     Foreign Student X 2    Indian Student X 2 ",
+                                  "Indian Adult X 1     Foreign Student X 2     ",
                                   style: TextStyle(
                                     color: Colors.white,
-                                    fontSize: 8,
+                                    fontSize: 10,
                                   ),
                                 ),
                               ),
@@ -164,7 +172,7 @@ class _PrgmPageState extends State<PrgmPage> {
                                   "Indian Adult X 1     Foreign Student X 2    ",
                                   style: TextStyle(
                                     color: Color(0xff68D389),
-                                    fontSize: 8,
+                                    fontSize: 10,
                                   ),
                                 ),
                               ),

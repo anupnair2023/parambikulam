@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:parambikulam/summary.dart';
 
 class Ratepage extends StatefulWidget {
   const Ratepage({Key? key}) : super(key: key);
@@ -122,71 +123,79 @@ class _RatepageState extends State<Ratepage> {
                     itemBuilder: (BuildContext context, index) {
                       return Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: Container(
-                          padding: const EdgeInsets.all(14.0),
-                          color: const Color(0xff292929),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: const [
-                                  Text('Week days',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        // Change to your desired color
-                                        fontSize: 16.0,
-                                      )),
-                                  Text(' 350 INR',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        // Change to your desired color
-                                        fontSize: 16.0,
-                                      )),
-                                  Text('Indian',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        // Change to your desired color
-                                        fontSize: 12.0,
-                                      )),
-                                ],
-                              ),
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: const [
-                                  Text('INR 350',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        // Change to your desired color
-                                        fontSize: 16.0,
-                                      )),
-                                  Text('forienger',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        // Change to your desired color
-                                        fontSize: 12.0,
-                                      )),
-                                ],
-                              ),
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: const [
-                                  Text('INR 350',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        // Change to your desired color
-                                        fontSize: 16.0,
-                                      )),
-                                  Text('Children',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        // Change to your desired color
-                                        fontSize: 12.0,
-                                      )),
-                                ],
-                              ),
-                            ],
+                        child: InkWell(
+                          child: Container(
+                            padding: const EdgeInsets.all(14.0),
+                            color: const Color(0xff292929),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: const [
+                                    Text('Week days',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          // Change to your desired color
+                                          fontSize: 16.0,
+                                        )),
+                                    Text(' 350 INR',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          // Change to your desired color
+                                          fontSize: 16.0,
+                                        )),
+                                    Text('Indian',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          // Change to your desired color
+                                          fontSize: 12.0,
+                                        )),
+                                  ],
+                                ),
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: const [
+                                    Text('INR 350',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          // Change to your desired color
+                                          fontSize: 16.0,
+                                        )),
+                                    Text('forienger',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          // Change to your desired color
+                                          fontSize: 12.0,
+                                        )),
+                                  ],
+                                ),
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: const [
+                                    Text('INR 350',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          // Change to your desired color
+                                          fontSize: 16.0,
+                                        )),
+                                    Text('Children',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          // Change to your desired color
+                                          fontSize: 12.0,
+                                        )),
+                                  ],
+                                ),
+                              ],
+                            ),
                           ),
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const Summarypage()));
+                          },
                         ),
                       );
                     }),
