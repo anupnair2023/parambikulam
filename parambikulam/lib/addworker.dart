@@ -21,6 +21,8 @@ class _NewworkerPageState extends State<NewworkerPage> {
   final TextEditingController phonecontroller = TextEditingController();
   final TextEditingController dailyWagecontroller = TextEditingController();
   final TextEditingController passwordcontroller = TextEditingController();
+
+  String? selectedValue = 'female';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -90,21 +92,52 @@ class _NewworkerPageState extends State<NewworkerPage> {
                     ),
                   ),
                 ),
-                TextFormField(
-                  controller: gendercontroller,
-                  style: const TextStyle(
-                    color: Color.fromARGB(
-                        255, 11, 11, 11), // Change to your desired color
-                    fontSize: 10.0, // Set the font size
-                    fontWeight: FontWeight.bold, // Set the font weight
-                    // Other text style properties like fontFamily, letterSpacing, etc.
-                  ),
-                  decoration: const InputDecoration(
-                    fillColor: Colors.grey,
-                    filled: true,
-                    border: OutlineInputBorder(),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: Container(
+                    width: 350,
+                    color: Colors.grey,
+                    child: DropdownButton<String>(
+                      iconEnabledColor: Colors.black,
+                      value: selectedValue,
+                      onChanged: (String? newValue) {
+                        setState(() {
+                          selectedValue = newValue;
+                        });
+                      },
+                      items: <String>[
+                        'male',
+                        'female',
+                      ].map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value),
+                        );
+                      }).toList(),
+                      underline: Container(
+                        // Replace the underline with an empty Container
+                        height: 0,
+                        color: Colors
+                            .transparent, // Set transparent color to hide the line
+                      ),
+                    ),
                   ),
                 ),
+                // TextFormField(
+                //   controller: gendercontroller,
+                //   style: const TextStyle(
+                //     color: Color.fromARGB(
+                //         255, 11, 11, 11), // Change to your desired color
+                //     fontSize: 10.0, // Set the font size
+                //     fontWeight: FontWeight.bold, // Set the font weight
+                //     // Other text style properties like fontFamily, letterSpacing, etc.
+                //   ),
+                //   decoration: const InputDecoration(
+                //     fillColor: Colors.grey,
+                //     filled: true,
+                //     border: OutlineInputBorder(),
+                //   ),
+                // ),
                 const SizedBox(
                   // Set the desired width
                   width: 50.0, // Set the desired height
@@ -154,27 +187,30 @@ class _NewworkerPageState extends State<NewworkerPage> {
                       style: TextStyle(
                         color: Color.fromRGBO(0, 0, 0, 1),
                         fontSize: 12.0, // Set the font size
-                        fontWeight: FontWeight.bold, // Set the font weight
+                        fontWeight: FontWeight.bold,
+
+                        // Set the font weight
                         // Other text style properties like fontFamily, letterSpacing, etc.
                       ),
                     ),
                   ),
                 ),
-                TextFormField(
-                  controller: statecontroller,
-                  style: const TextStyle(
-                    color: Color.fromARGB(
-                        255, 11, 11, 11), // Change to your desired color
-                    fontSize: 10.0, // Set the font size
-                    fontWeight: FontWeight.bold, // Set the font weight
-                    // Other text style properties like fontFamily, letterSpacing, etc.
-                  ),
-                  decoration: const InputDecoration(
-                    fillColor: Colors.grey,
-                    filled: true,
-                    border: OutlineInputBorder(),
-                  ),
-                ),
+                // TextFormField(
+
+                //   controller: statecontroller,
+                //   style: const TextStyle(
+                //     color: Color.fromARGB(
+                //         255, 11, 11, 11), // Change to your desired color
+                //     fontSize: 10.0, // Set the font size
+                //     fontWeight: FontWeight.bold, // Set the font weight
+                //     // Other text style properties like fontFamily, letterSpacing, etc.
+                //   ),
+                //   decoration: const InputDecoration(
+                //     fillColor: Colors.grey,
+                //     filled: true,
+                //     border: OutlineInputBorder(),
+                //   ),
+                // ),
                 const SizedBox(
                   // Set the desired width
                   width: 50.0, // Set the desired height
